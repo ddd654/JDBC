@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>목록태그(어차피 디자인으로 바꾸게된다)</h3>
+
+	<ul>
+		<li>사과</li>
+		<li>바나나</li>
+		<li>자두</li>
+		<li>복숭아</li>
+	</ul>
+
+
+	<ol>
+		<!-- ctrl alt 아래 위로 복사 -->
+
+		<li>파인애플</li>
+		<li>키위</li>
+		<li>수박</li>
+		<li>멜론</li>
+	</ol>
+
+
+	<h3>테이블 태그</h3>
+
+	<table border=1>
+		<tr>
+			<!-- 1행 4열 -->
+			<th>순서</th>
+			<th>이름</th>
+			<th>나이</th>
+			<th>성별</th>
+		</tr>
+
+		<tr><!-- 2행 4열 -->
+			<td>1</td>
+			<td>사과</td>
+			<td>22</td>
+			<td>남</td>
+		</tr>
+
+		<tr><!-- 3행 4열 -->
+			<td>2</td>
+			<td>바나나</td>
+			<td>33</td>
+			<td>남</td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

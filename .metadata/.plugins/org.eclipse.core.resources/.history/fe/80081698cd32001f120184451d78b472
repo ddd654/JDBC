@@ -18,7 +18,7 @@
 	<form action="req_ex02.jsp">
 		닉네임: <input type="text" name="nick"> <br>
 		취미:
-		<input type="checkbox" name = "hobby" value ="A">코딩 하기
+		<input type="checkbox" name = "hobby" value = "A">코딩하기
 		<input type="checkbox" name = "hobby" value= "B">잠자기
 		<input type="checkbox" name = "hobby" value= "C">집에가기
 		

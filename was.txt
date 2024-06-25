@@ -1,3 +1,23 @@
+오라클 hr스키마 초기화
+0. 접속 해제.
+1. Run sql commandline접속
+	=> conn sys as sysdba
+2. @?/demo/schema/human_resources/hr_main.sql
+3. HR
+4. users
+5. temp
+6. 1234
+7. C:/oraclexe/app/oracle/product/11.2.0/server/demo/schema/log/
+
+
+================================================================
+오라클 
+jdbc:oracle:thin:@localhost:1521:xe
+
+
+
+
+
 was 사용해보기
 
 1. 아파치 10버전 받아서 이클립스 스위치 해서 넣기

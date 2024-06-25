@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>입력양식</h3>
+	
+	<form action="req_ex02.jsp">
+		닉네임: <input type="text" name="nick"> <br>
+		취미:
+		<input type="checkbox" name = "hobby">코딩하기
+		<input type="checkbox" name = "hobby">잠자기
+		<input type="checkbox" name = "hobby">집에가기
+		
+		<br>
+		사는곳:
+		<select name="region">
+			<option>경기도</option>
+			<option>서울시</option>
+			<option>인천시</option>
+		
+		</select>
+	
+		<br>
+		<input type="submit" value="전송">
+	
+	
+	</form>
+	
+	
+	
+	
+	
+	
+</body>
+</html>

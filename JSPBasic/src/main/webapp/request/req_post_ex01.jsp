@@ -10,7 +10,7 @@
 	
 	<!--method = "post" post방식으로 실행하기  -->
 
-	<h2>post방식 form방식이 꼭 필요합니다</h2>
+	<h2>post방식 form이 꼭 필요하다 보안에 좋음</h2>
 	
 	<form action="req_post_ex02.jsp" method = "post">
 		아이디:<input type="text" name="id">

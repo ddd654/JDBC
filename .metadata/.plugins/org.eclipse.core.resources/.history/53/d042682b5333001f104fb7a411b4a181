@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%
+// 2.아이디가 abc이고, 비밀번호가 1234, 로그인 성공이라고 가정하고 ex02_success로 이동
+// 3. 아이디, 비밀번호가 틀린경우 ex02_fail페리지로 리다이렉트 시키기
+%>
+
+<%
+// 받은 아이디 비밀번호
+
+String id = request.getParameter("id");
+String pw = request.getParameter("pw");
+
+
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+</body>
+</html>

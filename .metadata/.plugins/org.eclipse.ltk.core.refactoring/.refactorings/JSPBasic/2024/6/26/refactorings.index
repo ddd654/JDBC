@@ -6,3 +6,10 @@
 1719285798490	Delete element
 1719293881967	Rename resource 'Request'
 1719294032666	Rename resource 'request_basic.jsp'
+1719361332425	Rename resource 'tes_ex02_result.jsp'
+1719362219472	Rename resource 'ex02_fail.jsp'
+1719366305232	Rename resource 'cookie_01.jsp'
+1719368405108	Rename resource 'cookie02_result.jsp'
+1719368941745	Rename resource 'cookie_welcome.jsp'
+1719373056070	Rename resource 'session_login.jsp'
+1719382301067	Move 'application' to 'webapp'

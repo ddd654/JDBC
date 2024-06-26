@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>경로 공부</h3>
+	
+	<!-- a태그로 jspTag 폴더에 include페이지로 상대경로, 절대경로로 이동하기 -->
+	
+	<!-- MrServlet 경로는 /JSPBasic/apple 상대경로로 이동하기 -->
+	
+	<!-- html 안에 있는 이미지 파일을 img태그 상대경로, 절대경로 참조 -->
+	
+</body>
+</html>

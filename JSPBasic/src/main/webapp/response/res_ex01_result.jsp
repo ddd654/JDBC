@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8"); //한글나오게
 	
 	String name = request.getParameter("name");
 	int age = Integer.parseInt(request.getParameter("age"));

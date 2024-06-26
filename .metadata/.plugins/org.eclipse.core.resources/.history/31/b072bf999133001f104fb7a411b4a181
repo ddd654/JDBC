@@ -1,0 +1,33 @@
+package com.servlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/forward") //요청경로
+public class forward_servlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public forward_servlet() {
+        super();
+
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		doGet(request, response);
+		
+		//post요청에 대한 자바코드
+		String id =request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		System.out.println(id + "," + pw);
+}

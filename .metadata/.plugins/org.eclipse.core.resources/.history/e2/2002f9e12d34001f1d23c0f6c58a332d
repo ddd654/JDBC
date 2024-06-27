@@ -1,0 +1,31 @@
+<%@page import="com.model.DepartmentDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+    <%
+    // select_result 페이지에서 조회한 결과를 얻는다
+    
+    ArrayList<DepartmentDTO> list = (ArrayList<DepartmentDTO>)request.getAttribute("list");
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	부서수
+	<%=list %>
+</body>
+</html>

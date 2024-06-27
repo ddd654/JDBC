@@ -1,0 +1,38 @@
+<%@page import="com.model.DepartmentDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%
+    
+    //setAttribute로 req에 저장
+    request.setAttribute("email", "aaa@naver.com");
+    //쓰려면 getAttribute가 필요했는데 el로 사용가능하다
+    
+    
+    
+    DepartmentDTO dto = new DepartmentDTO();
+    dto.setDepartmentID(100);
+    dto.setDepartmentName("IT");
+    
+    request.setAttribute("dto", dto);
+    
+    
+    
+    
+    
+    %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>setAttribute로 저장된 값을 el로 사용해보기</h3>
+	${requestScope.email } <br>
+	
+	${ }
+	
+</body>
+</html>

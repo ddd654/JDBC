@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+    <%
+    //세션에 값을 저장
+    session.setAttribute("user_id", "aaa123");
+    session.setAttribute("user_name", "사과");
+    
+    
+    %>
+    
+    
+    
+    
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	sessionScope도 생략 가능함 <br>
+	${sessionScope.user_id } <br>
+	${sessionScope.user_name } <br>
+	
+	<!-- sessionScope, applicationScope는 생략 안하고 쓰는편이다 -->
+
+</body>
+</html>

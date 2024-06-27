@@ -10,6 +10,7 @@
 	//2. 쿠키 지속시간
 	cookie.setMaxAge(3600); // 1시간
 	cookie2.setMaxAge(20); // 20초
+	
 	//3. 쿠키를 response에 담아서 보낸다
 	response.addCookie(cookie);
 	response.addCookie(cookie2);

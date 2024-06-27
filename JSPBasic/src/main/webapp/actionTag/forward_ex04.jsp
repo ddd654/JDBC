@@ -5,6 +5,7 @@
     /* request.getParameter(arg0); */
     
     //중간에 setAttribute로 저장한 데이터는 getAttribute로 사용
+    // get은 form 값을 가져와서 사용한다
     String name = (String)request.getAttribute("name");
     
     

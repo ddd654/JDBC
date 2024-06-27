@@ -10,5 +10,7 @@
 </head>
 <body>
 	sendRedirect로 넘어온 데이터<%=point %>
+	
+	리다이렉트로 보내면 포워드와 다르게 가져올수 없다
 </body>
 </html>

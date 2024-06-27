@@ -9,7 +9,7 @@
 	
 	if(age >= 20){
 		//response
-		response.sendRedirect("res_ex01_ok.jsp");
+		response.sendRedirect("res_ex01_ok.jsp"); //페이지 이쪽으로 옯기기
 	} else {
 		response.sendRedirect("res_ex01_no.jsp");
 	}

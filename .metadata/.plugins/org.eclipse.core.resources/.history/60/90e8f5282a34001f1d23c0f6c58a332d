@@ -1,0 +1,45 @@
+package com.model;
+
+import java.util.ArrayList;
+
+public class DepartmentDAO {
+	
+	// 테이블 별로 하나씩 만든다?
+	// DAO는 여러개 만들필요가 없어, 객체가 하나만 생성되도록 singleton방식으로 설계한다
+	
+	//1. 나자신의 객체를 1개 생성 후 private 을 붙임
+	private static DepartmentDAO instance = new DepartmentDAO();
+	
+	//2. 직접 객체를 생성할 수 없도록 생성자에 private을 붙임
+	private DepartmentDAO() {
+		
+	}
+	
+	//3. 객체 생성을 요구할때 getter 메서드를 사용해서 1번의 객체를 반환한다
+	public static DepartmentDAO getInstance() { // static 같은 곳에서 사용
+		return instance;
+	}
+	
+	//---------------
+	
+	//이제 필요한 메서드를 생성한다
+	// VO는 값을 옮겨주는 클래스이다 = DTO
+	
+	
+	//DTO는 한 행을 저장한다
+	// ojdbc는 데이터 연결해주는 거
+	//부서명 조회하는 메서드 만들기 <<
+	public ArrayList<DepartmentDTO> getList(){// 반환 유형을 리스트 유형으로 한다
+			
+		ArrayList<DepartmentDTO> list = new ArrayList<>();
+		
+		//데이터베이스 연결하기
+		
+		return list;
+		
+	}
+	
+	
+	
+	
+}

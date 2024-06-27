@@ -1,0 +1,11 @@
+package com.model;
+
+public class Quiz_DAO {
+	
+	private static DepartmentDAO instance = new DepartmentDAO();
+	
+	Quiz_DAO(){
+		
+	}
+	
+}

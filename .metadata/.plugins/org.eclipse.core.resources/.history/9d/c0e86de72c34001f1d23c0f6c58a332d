@@ -1,0 +1,35 @@
+<%@page import="com.model.DepartmentDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+    <%
+    // 받은 값은 없다
+    
+    //DAO 객체 생성하기
+    // new DepartmentDTO(); // << 이렇게 생성 못함
+    
+    DepartmentDAO dao =  DepartmentDAO.getInstance();    
+    
+    %>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+package com.model;
+
+import javax.naming.InitialContext;
+
+public class Quiz_DAO {
+	
+	private static DepartmentDAO instance = new DepartmentDAO();
+	
+	Quiz_DAO(){
+		
+		try {
+			InitialContext init = new InitialContext();
+			
+			ds= init.lookup("");
+			
+		}
+		
+	}
+	
+}

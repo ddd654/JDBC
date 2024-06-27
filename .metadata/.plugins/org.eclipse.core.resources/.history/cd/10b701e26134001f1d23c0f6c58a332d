@@ -1,0 +1,28 @@
+
+import javax.naming.InitialContext;
+
+public class Quiz_DAO {
+
+	private static DepartmentDAO instance = new DepartmentDAO();
+
+	Quiz_DAO() {
+
+		try {
+			InitialContext init = new InitialContext();
+
+			ds = init.lookup("java:comp/env/jdbc/oracle");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("error");
+		}
+
+	}
+	
+	public static DepartmentDAO getInstance() {
+		return instance;
+	}
+	
+
+}

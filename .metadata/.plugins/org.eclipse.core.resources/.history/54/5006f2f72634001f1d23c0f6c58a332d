@@ -1,0 +1,7 @@
+package com.model;
+
+public class DepartmentDTO {
+	
+	//DTO = VO 클래스는 데이터를 옮기기 위한 클래스이며, 테이블별 1개씩 만든다
+	// 관련변수를 테이블과 동일한 이름으로 선언하고, getter setter를 만들어준다
+}

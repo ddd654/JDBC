@@ -1,0 +1,38 @@
+package com.model;
+
+import java.util.ArrayList;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class Quiz_DAO {
+
+	private static Quiz_DAO instance = new Quiz_DAO();
+	private DataSource ds;
+
+	Quiz_DAO() {
+
+		try {
+			InitialContext init = new InitialContext();
+
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("error");
+		}
+
+	}
+
+	public static Quiz_DAO getInstance() {
+		return instance;
+	}
+
+	public ArrayList<DepartmentDTO> getList() {
+
+		
+		
+	}
+
+}

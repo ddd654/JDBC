@@ -1,0 +1,78 @@
+package com.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class Quiz_DAO {
+
+	private static Quiz_DAO instance = new Quiz_DAO();
+	private DataSource ds;
+
+	Quiz_DAO() {
+
+		try {
+			InitialContext init = new InitialContext();
+
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("error");
+		}
+
+	}
+
+	public static Quiz_DAO getInstance() {
+		return instance;
+	}
+
+	public ArrayList<DepartmentDTO> getList() {
+
+		ArrayList<Quiz_DTO> list = new ArrayList<Quiz_DTO>();
+		
+		String sql ="";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int departmentId = rs.getInt("department_id");
+				String departmentName = rs.getString("department_name");
+				int managerId = rs.getInt("manager_id");
+				int locationId = rs.getInt("location_Id");
+				
+				Quiz_DTO dto = new Quiz_DTO(departmentId, departmentName, managerId, locationId);
+				
+				list.add(dto);
+				
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+				
+			try {
+				if(conn != null) conn.close();
+				if(pstmt != null) pstmt.close();
+				if(rs != null) rs.close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		}
+	}
+
+}

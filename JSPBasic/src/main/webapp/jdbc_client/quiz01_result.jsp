@@ -1,8 +1,8 @@
 <%@page import="oracle.jdbc.driver.json.parser.JsonParserImpl"%>
-<%@page import="com.model.Quiz_DTO"%>
-<%@page import="com.model.Quiz_DAO"%>
+<%@page import="com.myweb.model.Quiz_DTO"%>
+<%@page import="com.myweb.model.Quiz_DAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.model.DepartmentDAO"%>
+<%@page import="com.myweb.model.DepartmentDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -24,12 +24,22 @@
 	int departmentId = Integer.parseInt(name);
 
 	Quiz_DAO dao = Quiz_DAO.getInstance();
-	ArrayList<Quiz_DTO> list = dao.getList(departmentId);
+	ArrayList<Quiz_DTO> list = dao.getList(departmentId); //메서드 호출
 	
 	request.setAttribute("list", list);
 	
 	//포워드 이동
 	request.getRequestDispatcher("select_ok.jsp").forward(request, response);
+	
+	
+	/* //---------
+	//DAO생성
+	Quiz_DAO dao2 =Quiz_DAO.getInstance();
+	Quiz_DTO dto = dao.getDept(dno); //메서드 호출
+	
+	//dto를 quiz_ok로 넘긴다
+	request.setAttribute("dto", dto);
+	request.getRequestDispatcher("quiz_ok.jsp").forward(request, response); */
 	
 %>
 <h3>조회할 부서번호</h3>

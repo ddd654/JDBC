@@ -33,7 +33,8 @@ public class Quiz_DAO {
 	}
 
 	//
-	//
+
+	// 리스트로
 	public ArrayList<Quiz_DTO> getList(int department_id) {
 
 		ArrayList<Quiz_DTO> list = new ArrayList<Quiz_DTO>();
@@ -49,7 +50,7 @@ public class Quiz_DAO {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, department_id);
-			
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -79,7 +80,44 @@ public class Quiz_DAO {
 				// TODO: handle exception
 			}
 		}
-		
+
 		return list;
 	}
+
+//	//부서번호를 조회하는 메서드, 리스트가 아닌 하나의 행을 처리하는 메서드
+//		public DepartmentDTO getDept(String dno) {
+//			DepartmentDTO dto = null;
+//			Connection conn = null;
+	
+//			rs
+//			
+//			String sql = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID =?";
+//			
+//			try {
+//				conn = ds.getConnection();
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, dno);
+//				
+//				
+//				//한바퀴만 돌기에 while 안써도 된다
+//				
+//				while(rs.next()) {
+//					dto = new DepartmentDTO();
+//					
+//					int departmentId = rs.getInt("department_id");
+//					String departmentName = rs.getString("department_name");
+//					int managerId = rs.getInt("manager_id");
+//					int locationId = rs.getInt("location_Id");
+//					
+//				}
+//				
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				e.printStackTrace();
+//			}
+//			닫아주는 작업
+//			
+//			return dto;
+//		}
+
 }

@@ -1,6 +1,0 @@
-package com.model;
-
-public class DepartmentDAO {
-	
-	//테이블 별로 하나씩 만든다
-}

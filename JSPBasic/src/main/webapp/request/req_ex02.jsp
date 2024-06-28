@@ -3,6 +3,12 @@
     pageEncoding="UTF-8"%>
     
 <%
+
+//get, post 방식으로 넘어온 데이터를 사용할때는 getParameter() 메서드를
+
+//request, session 등과 같이 같은 영역에 속성값을 저장하고 가져올떄는
+// set/get Attribute()를 사용한다
+
 	String nick = request.getParameter("nick");//input 태그의 name값 넣기
 	String region = request.getParameter("region");
 	String[] hobby = request.getParameterValues("hobby");// name이 여러개면 values()

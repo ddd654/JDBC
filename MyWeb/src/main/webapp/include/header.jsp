@@ -79,7 +79,8 @@
 					<li><a
 						href="${pageContext.request.contextPath }/member/member.jsp">Member</a>
 					</li>
-					<li><a href="">BOARD</a></li>
+					
+					<li><a href="${pageContext.request.contextPath }/board/list.board">BOARD</a></li>
 
 					<!-- 마이페이지로 가면 로그인 메뉴대신에 다른게 보여야한다 -->
 					<!-- 여기로 들어가면 컨트롤러로 간다 --> 

@@ -1,0 +1,55 @@
+CREATE TABLE BOARD(
+    BNO NUMBER(10), -- 글번호 = PK
+    WRITER VARCHAR2(30) NOT NULL, -- 회원테이블과 연관되는 = FK
+    TITLE VARCHAR2(200) NOT NULL,   --작성자
+    CONTENT VARCHAR2(500),          --내용
+    REGDATE DATE DEFAULT SYSDATE,   --등록일
+    HIT NUMBER(5) DEFAULT 0        --조회수
+);
+
+ALTER TABLE BOARD ADD CONSTRAINT BOARD_BNO_PK PRIMARY KEY (BNO);
+
+CREATE SEQUENCE BOARD_SEQ NOCACHE; --아무것도 안적으면 기본값이 되기에 노캐시만 지정해줌
+
+
+1. 디자인하기 http, css js 등등
+
+2. SQL로 테이블, 데이터 테이블 만들기
+> 키 지정, 제약지정
+
+3. 2에따라 DTO DAO 만들기 = model 만들기
+
+4. 컨트롤러 만들기 BoardController
+ doGet
+ doPost
+ 
+ doAction으로 요청 분기 < doGet, doPost에서 액션으로
+ 
+5. 중요한 요청 경로 적기
+@WebServlet("*.board") // .board로 끝나는 모든 요청은 서블렛으로 받기
+
+6. 게시판의 기능들 생각해보기
+목록보기 > select
+글등록하기 > insert
+글내용확인 > select
+글수정 > update
+글삭제 > delete
+
+7. 헤더에서 보드 부분 경로 확인 및 수정 83줄
+
+8. 보드 컨트롤러 포워드 추가
+9. jsp 버튼 수정 > 컨트롤러 추가
+
+10. 사용자가 글작성으로 insert 할것이다
+jsp에서 name 값들은 오라클 칼럼값을 주로 쓴다
+
+jsp에서 디자인 밋 수정 후 컨트롤러로 가서 수정하기
+
+11. 서비스
+
+
+
+21. 최신 글을 보기위한 내림차순 정렬
+SELECT * FROM BOARD ORDER BY BNO DESC;
+
+

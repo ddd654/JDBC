@@ -75,6 +75,7 @@ public class UserDTO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
+
 	
 	
 	

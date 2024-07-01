@@ -1,5 +1,5 @@
 #Tomcat publish data
-#Fri Jun 28 19:01:43 KST 2024
+#Mon Jul 01 12:42:31 KST 2024
 org.eclipse.jst.jee.server\:JSPBasic=C\:\\Users\\user\\Desktop\\course\\JSP\\apache-tomcat-10.1.25\\wtpwebapps\\JSPBasic
 org.eclipse.jst.jee.server\:MyWeb2=C\:\\Users\\user\\Desktop\\course\\JSP\\apache-tomcat-10.1.25\\wtpwebapps\\MyWeb2
 org.eclipse.jst.jee.server\:MyWeb=C\:\\Users\\user\\Desktop\\course\\JSP\\apache-tomcat-10.1.25\\wtpwebapps\\MyWeb

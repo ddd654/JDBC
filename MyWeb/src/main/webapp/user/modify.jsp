@@ -16,49 +16,48 @@
 	selected 셀렉트태그에서 미리선택
 
   -->
+  
+  <!-- 4. 이 화면에 dto가 있다
+  값 정리 후 수정을 누르면 update.user로 보내주겠다
+  컨트롤러로 사서 수정
+   -->
 	<div align="center">
 		
-		${userInfo.id }
-		${userInfo.userId }
-		${userInfo.email }
-		
-		${userId }
-		${msg }
-		<h3>노름은 파도고, 프로그램은 data flow다</h3>
+		${dto }
 		<p>apple</p>
 		<hr/>
 		
-		<form action="joinForm.user" method="post">
+		<form action="update.user" method="post">
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" placeholder="4글자 이상" required="required"></td>
+					<td><input type="text" name="id" placeholder="4글자 이상" value="${dto.id }" required="required"></td>
 				</tr>			
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" name="pw" placeholder="4자 이상"></td>
+					<td><input type="text" name="pw" placeholder="4자 이상" value="${dto.pw }" required="required"></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" placeholder="이름"></td>
+					<td><input type="text" name="name" placeholder="이름" value="${dto.name }" required="required"></td>
 				</tr>			
 				<tr>
 					<td>이메일</td>
-					<td><input type="email" name="email"></td>
+					<td><input type="email" name="email" value="${dto.email }"></td>
 				</tr>
 				<tr>
 					<td>남? 여?</td>
 					<td>
-						<input type="radio" name="gender" value="M">남자
-						<input type="radio" name="gender" value="F">여자
+						<input type="radio" name="gender" value="M" ${dto.gender == 'M' ? 'check' : '' }>남자
+						<input type="radio" name="gender" value="F" ${dto.gender == 'F' ? 'check' : ''  }>여자
 					</td>
 				</tr>			
 			
 			</table>
 			
 			<br/>
-			<input type="submit" value="가입">
-			<input type="button" value="로그인" onclick="location.href='login.user';">
+			<input type="submit" value="수정">
+			<input type="button" value="로그인" onclick="location.href='mypage.user';">
 			
 			
 		</form>

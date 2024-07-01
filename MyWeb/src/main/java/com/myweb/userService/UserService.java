@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface UserService {
 	
 	//컨트롤러에서 가져와서 구현체 만들기
+	//
 	void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	//인터페이스 하나 만들기
@@ -20,8 +21,11 @@ public interface UserService {
 	//오버라이딩 하러
 
 
+	//update 하는 메서드
+	void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
-
-
+	//딜리트 메서드
+	
+	void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 }

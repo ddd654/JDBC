@@ -3,6 +3,7 @@ package com.myweb.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -92,6 +93,7 @@ public class UserDAO {
 		return result;
 	}
 
+	//
 	// 회원가입하는 메서드
 	public void insertUser(String id, String pw, String name, String email, String gender) {
 
@@ -122,7 +124,7 @@ public class UserDAO {
 
 	}
 
-	// 무슨 메서드
+	// 아이디와 패스워드로
 	public UserDTO login(String id, String pw) {
 
 		String sql = "SELECT * FROM USERS WHERE ID = ? AND PW = ?";
@@ -161,13 +163,14 @@ public class UserDAO {
 		return dto;
 	}
 
-	//
+	// ---------
+	// 2. 데이터 1행은 DTO에 담아서 반환한다
 	// 아이디를 기반으로 회원정보를 조회하는 getInfo() 메서드 만들기
 	public UserDTO getInfo(String id) { // void?
+		UserDTO dto = new UserDTO();
 
 		String sql = "SELECT * FROM USERS WHERE ID = ?";
-
-		UserDTO dto = null;
+		// String id << 이값이 들어간다
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -175,21 +178,32 @@ public class UserDAO {
 
 		try {
 			conn = ds.getConnection();
+			// 생성자에 담아놓은 멤버변수,
+			// DB연결하기위한 객체
 
 			pstmt = conn.prepareStatement(sql);
+			// sql 실행하기 위한 객체
+
 			pstmt.setString(1, id);
+			// 물음표를 차례대로 채우는 값
 
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) { // 다음행이 있으면
-				String id1 = rs.getString("ID");
-				String name=rs.getString("name");
-				String email=rs.getString("email");
+			if (rs.next()) { // 다음행이 있으면, 다음행으로 접근
 
-				String gender=rs.getString("gender");
-				
-				dto = new UserDTO(id1, null, name, email, gender, null);
+				// 오라클에서 DESC USERS 했을때 타입이 나오는데 String 이였음
+				String ids = rs.getString("ID");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String gender = rs.getString("gender");
+//				Timestamp regdate = rs.getTimestamp("regdate");
 
+				// setter 를 통해서 저장하기
+				dto.setId(ids);
+				dto.setName(name);
+				dto.setEmail(email);
+				dto.setGender(gender);
+//				dto.setRegdate(regdate); // 오류?
 			}
 
 		} catch (Exception e) {
@@ -201,4 +215,104 @@ public class UserDAO {
 		return dto;
 	}
 
+	// -------
+	// 회원정보 수정, 업데이트 - 성공시 1 반환, 실패시 0반환하게
+	public int update(UserDTO dto) {// UserDTO dto를 매개변수로 받음
+		// UserServiceImpl에서의 값들을 가져온다
+		int result = 0; // 실패하면 0
+
+		String sql = "UPDATE USERS SER PW = ?, NAME = ?, EMAIL = ?, GENDER = ? WHERE ID = ?"; // 키를 통해 업뎃하는게 기본이다
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		// rs는 select 용이여서 필요없음
+
+		try {
+
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			// 객체로 선언해서
+
+			pstmt.setString(1, dto.getPw());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getEmail());
+			pstmt.setString(4, dto.getGender());
+			pstmt.setString(5, dto.getId());
+
+			// insert, update, delete 구문 실행하기
+			// pstmt.executeUpdate();
+			// -- 실행까지면 여기까지가 끝
+
+			// 결과를 반환받기, 지금같은 경우는 1이면 성공, 0이면 실패
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.close(conn, pstmt, null);
+		}
+
+		return result;
+
+	}
+
+	// -----
+	// delete 메서드 만들기
+	public UserDTO delete(String id) {
+		UserDTO dto = new UserDTO();
+
+		String sql = "DELETE FROM USERS WHERE PW = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getPw());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.close(conn, pstmt, null);
+		}
+		
+		
+		return dto;
+	}
+
+	//---------
+	
+	
+	public void delete1(String id) {
+		String sql = "DELETE FROM USERS WHERE ID = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt =null;
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.close(conn, pstmt, null);
+		}
+		
+		
+	}
+	
+	
 }

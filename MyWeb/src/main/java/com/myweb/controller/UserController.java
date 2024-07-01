@@ -95,13 +95,35 @@ public class UserController extends HttpServlet{
 					
 					response.sendRedirect(request.getContextPath() + "/index.jsp"); //메인화면으로 간다
 					
-				} 
-				
-				else if(command.equals("/user/modify.user")) {
-					request.getRequestDispatcher("modify.jsp").forward(request, response);
+				} else if(command.equals("/user/update.user")) {
+					//회원정보 수정 화면
+					
+					service = new UserServiceImpl();
+					service.update(request, response);
+				} else if (command.equals("/user/delete.user")) {
+					
+					//삭제 화면 만들기
+					//mvc2는 기본이동이 포워드
+					request.getRequestDispatcher("delete.jsp").forward(request, response);
+					
+					//이제 화면을 만들어야 한다 jsp로
+					
+				} else if (command.equals("/user/deleteForm.user")) {
+					//탈퇴화면으로
 					
 					
+					service = new UserServiceImpl();
+					service.delete(request, response);
 				}
+				
+				
+				
+				
+//				else if(command.equals("/user/modify.user")) {
+//					request.getRequestDispatcher("modify.jsp").forward(request, response);
+//					
+//					
+//				}
 				
 				
 	}

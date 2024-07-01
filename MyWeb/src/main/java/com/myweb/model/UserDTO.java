@@ -1,9 +1,10 @@
 package com.myweb.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class UserDTO {
 	
+	//오라클 이름을 따라간다
 	private String id;
 	private String pw;
 	private String name;

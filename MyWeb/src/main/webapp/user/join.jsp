@@ -28,7 +28,7 @@
 		
 		<hr/>
 		
-		<form action="joinForm.user" method="get">
+		<form action="modify.user" method="get">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -49,7 +49,7 @@
 				<tr>
 					<td>남? 여?</td>
 					<td>
-						<input type="radio" name="gender" value="M">남자
+						<input type="radio" name="gender" value="M" checked="checked">남자
 						<input type="radio" name="gender" value="F">여자
 					</td>
 				</tr>			

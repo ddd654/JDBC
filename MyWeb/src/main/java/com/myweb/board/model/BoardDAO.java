@@ -83,59 +83,57 @@ public class BoardDAO {
 		} finally {
 			jdbcUtil.close(conn, pstmt, null); // 닫기 필수
 		}
-		//17. 메서드 끝나면 서비스
+		// 17. 메서드 끝나면 서비스
 	}
-	
-	
-	//23. 글목록 조회하는 메서드 만들기
+
+	// 23. 글목록 조회하는 메서드 만들기
 	// 여러목록의 행이니까 리스트 DTO가 필요하다
-	public ArrayList<BoardDTO> getList(){
-		ArrayList<BoardDTO> list= new ArrayList<>();
-		
+	public ArrayList<BoardDTO> getList() {
+		ArrayList<BoardDTO> list = new ArrayList<>();
+
 		String sql = "SELECT * FROM BOARD ORDER BY BNO DESC";
-		
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		try {
-			
+
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery(); //select는 query로 실행한다
-			
-			//24. 어레이 리스트에 하나하나 담아야한다
-			while(rs.next()) {
-				//1행의 대한 처리이다
-				//칼럼을 DTO에 담고, DTO를 List에 추가한다
-				
+
+			rs = pstmt.executeQuery(); // select는 query로 실행한다
+
+			// 24. 어레이 리스트에 하나하나 담아야한다
+			while (rs.next()) {
+				// 1행의 대한 처리이다
+				// 칼럼을 DTO에 담고, DTO를 List에 추가한다
+
 				int bno = rs.getInt("bno");
 				String writer = rs.getString("writer");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
-				
-				//지금까지 1행에 대한 기록값이다
-				
-				//하나씩 넣으혀면하려면 셋 set
-				
-				//25. 한번에 생성자로 집어넣기
+
+				// 지금까지 1행에 대한 기록값이다
+
+				// 하나씩 넣으혀면하려면 셋 set
+
+				// 25. 한번에 생성자로 집어넣기
 				BoardDTO dto = new BoardDTO(bno, writer, title, content, regdate, hit);
-			
-				//26. list 추가하기
+
+				// 26. list 추가하기
 				list.add(dto); // << 모든행이 담기게 된다
 			}
-			
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			jdbcUtil.close(conn, pstmt, rs);
 		}
-		
+
 		return list;
 	}
 

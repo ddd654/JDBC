@@ -196,14 +196,14 @@ public class UserDAO {
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				String gender = rs.getString("gender");
-//				Timestamp regdate = rs.getTimestamp("regdate");
+				Timestamp regdate = rs.getTimestamp("regdate");
 
 				// setter 를 통해서 저장하기
 				dto.setId(ids);
 				dto.setName(name);
 				dto.setEmail(email);
 				dto.setGender(gender);
-//				dto.setRegdate(regdate); // 오류?
+				dto.setRegdate(regdate); // 오류?
 			}
 
 		} catch (Exception e) {

@@ -24,7 +24,6 @@ public class BoardServiceImpl implements BoardService {
 		String writer = request.getParameter("writer");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-
 		// 15. DAO에 넣어주기
 
 		// 18. dao 객체 추가하기
@@ -34,31 +33,28 @@ public class BoardServiceImpl implements BoardService {
 
 		// 19. 글 작성 후에는 목록 화면으로 이동한다 - 포워드로 이동하면 안됨
 		request.getRequestDispatcher("board_list.jsp").forward(request, response);
-	
-	
-		//32. 목록화면이 바로 안보여서 리다이렉트
+		// >> 컨트롤러로 가서 마저 수정
+		
+		// 32. 목록화면이 바로 안보여서 리다이렉트로
+		// 글작성 후에도 바로 목록이 보이게 된다
 		response.sendRedirect("list.board");
-	
-	
-	
+
 	}
 
-	//22. 서비스 정리 겟리스트 만들기
+	// 22. 서비스 정리 겟리스트 만들기
 	@Override
 	public void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//27. DAO 생성하고 겟리스트 목록 호출하기
+
+		// 27. DAO 생성하고 겟리스트 목록 호출하기
 		BoardDAO dao = BoardDAO.getInstance();
-		ArrayList<BoardDTO> list =dao.getList();
-		
-		//28. 이제 화면 들고 나가야되니 포워드로 뚫어 보낸다
+		ArrayList<BoardDTO> list = dao.getList();
+
+		// 28. 이제 화면 들고 나가야되니 포워드로 뚫어 보낸다
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("board_list.jsp").forward(request, response);
-		//board_list를 만나면 포워드로 보내라
-		//29. 보드 리스트로 가서 수정하기
-		
-		
-		
+		// board_list를 만나면 포워드로 보내라
+		// 29. 보드 리스트로 가서 수정하기
+
 	}
 
 }

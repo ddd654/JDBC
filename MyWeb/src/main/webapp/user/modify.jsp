@@ -23,6 +23,7 @@
    -->
 	<div align="center">
 		
+		<!-- 확인용 -->
 		${dto }
 		<p>apple</p>
 		<hr/>
@@ -48,8 +49,8 @@
 				<tr>
 					<td>남? 여?</td>
 					<td>
-						<input type="radio" name="gender" value="M" ${dto.gender == 'M' ? 'check' : '' }>남자
-						<input type="radio" name="gender" value="F" ${dto.gender == 'F' ? 'check' : ''  }>여자
+						<input type="radio" name="gender" value="M" checked="${dto.gender == 'M' ? 'check' : '' }" >남자
+						<input type="radio" name="gender" value="F" checked="${dto.gender == 'F' ? 'check' : '' }">여자
 					</td>
 				</tr>			
 			

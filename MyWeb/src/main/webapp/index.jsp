@@ -24,7 +24,6 @@
 					<p>강의가 궁금하다면?</p>
 					<hr>
 					<h3><a href="https://www.youtube.com/channel/UCXiyuCYo4dUqM556XpgqAcQ">둘러보기</a></h3>
-					
                 	
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"><!-- data-ride="carousel" 자동 슬라이드 기능 -->
                        

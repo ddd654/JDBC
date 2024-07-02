@@ -31,8 +31,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="작성 완료" onclick="">
-					&nbsp;&nbsp; <input type="button" value="목록"></td>
+				<td colspan="2">
+				<input type="submit" value="작성 완료" onclick="location.href='list.board';">
+					&nbsp;&nbsp;	
+				<input type="button" value="목록" onclick="location.href='list.board';"></td>
 			</tr>
 
 		</table>

@@ -1,0 +1,12 @@
+https://brave-planarian-384.notion.site/JSP-908a5ac8a0fb4c56bc4bb944fb3fc159
+노션에 설명 있음
+//32. 마이바티스 사용해보기
+
+1)mybatis-config 만들기
+2)MybatisUtill애서 세션팩토리 만들기
+3)모델에서 보드 인터페이스 만들기
+BoardMapper에서 인터페이스 now 만듬
+4)mybatis.mapper 패키지 만들어서 xml 마저 만들기
+
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 5) namespace="구현인터페이스 풀경로" 넣어야한다 
+	select 부분 id에는 인터페이스에서 함수명인 now(); 
+	그대로 적는다 resultType="반환받을 타입" 을 소문자로 적어준다 
+	string, int, double, dto풀경로 
+	
+	 -->
+	 <!-- 
+	 13) 마이바티스의 매개변수는 일단 꼭 1개여야 한다 
+	DTO에 값 3개 담고 BoardDTO를 보내면 된다 -->
+<mapper namespace="com.myweb.board.model.BoardMapper">
+
+	<select id="now" resultType="string">
+		<!-- 여기에 sql적는다, string 타입으로 반환 받겠다 세미콜론 안씀 이제 서비스impl에서 호출하러간다 -->
+		SELECT SYSDATE FROM DUAL
+	</select>
+
+
+	<!-- 10) 겟리스트 사용하기 지금 DTO 풀경로 -->
+
+	<select id="getList" resultType="com.myweb.board.model.BoardDTO">
+		SELECT * FROM BOARD ORDER BY BNO DESC
+	</select>
+
+	<!-- 14) insert 추가하기 
+	
+	파라미터값은 생략이 가능하나 적는것이 좋다
+	#{DTO의 GETTER 이름} << getter 변수 이름 따라간다, 대소문자 주의
+	
+	-->
+	
+	<insert id="regist" parameterType="com.myweb.board.model.BoardDTO">
+		<!-- 15) insert 구문 적기 -->
+		INSERT INTO BOARD(BNO, WRITER, TITLE, CONTENT)
+		VALUES(BOARD_SEQ.NEXTVAL, #{writer}, #{title}, #{content})
+	</insert>
+	<!-- 인터페이스에서 호출하러 가기 -->
+	
+	
+	<!-- 21) ?가 단일값이면 매개변수명을 따라간다
+		BoardMapper에서 getContent의 bno <<
+		>Board서비스 인터페이스로
+	 -->
+	<select id="getContent" resultType="com.myweb.board.model.BoardDTO">
+		SELECT * FROM BOARD WHERE BNO = #{bno}
+	
+	</select>
+	
+	<!-- 35) sql 짜기 -->
+	<update id="update" parameterType="com.myweb.board.model.BoardDTO">
+		UPDATE BOARD SET TITLE = #{title}, CONTENT = #{content} 
+		WHERE BNO = #{bno}
+	</update>
+	
+	<!--  40) -->
+	<delete id="delete" parameterType="string">
+		DELETE FROM BOARD WHERE BNO = #{bno}
+	</delete>
+	
+	<update id="increaseHit" parameterType="string">
+		UPDATE BOARD SET HIT = HIT + 1 WHERE BNO = #{bno}
+	</update>
+	
+</mapper>
+
+
+
+
+
+

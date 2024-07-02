@@ -23,7 +23,7 @@ public class BoardDAO {
 	private static BoardDAO instance = new BoardDAO();
 
 	// 2. 직접 객체를 생성할 수 없도록 생성자에 private을 붙임
-	BoardDAO() {
+	private BoardDAO() {
 
 		try {
 			// 커넥션 풀에 사용할 객체를 얻어옴
@@ -34,7 +34,7 @@ public class BoardDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 
-			System.out.println("에러났을때");
+			System.out.println("커넥션 풀 에러났을때");
 		}
 
 		// 복사했으니

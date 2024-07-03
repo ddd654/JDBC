@@ -12,6 +12,8 @@ import jakarta.servlet.annotation.WebFilter;
 //1. filter 인터페이스를 상속받고, web.xml 또는 @WebFilter를 이용해서 필터를 등록
 
 //@WebFilter("/*") //모든 요청에 대해서 필터가 실행됨
+
+
 @WebFilter("/*") //모든 요청에 대해서 필터가 실행됨
 public class Chainfilter implements Filter{
 

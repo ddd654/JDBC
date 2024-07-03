@@ -57,16 +57,16 @@ public class BoardController extends HttpServlet {
 			// 23. 위처럼 만들어 겟리스트 가져옴
 
 		} else if (command.equals("/board/write.board")) {// 글 작성화면으로 연결
-
-			//세션이 있나 없나로 글작성페이지 진입
-			HttpSession session = request.getSession();
-			String user_id = (String) session.getAttribute("user_id");
-			
-			if(user_id == null) {
-				response.sendRedirect("/MyWeb/index.jsp");
-				return;
-			
-			}
+//필터 테스트
+//			//세션이 있나 없나로 글작성페이지 진입
+//			HttpSession session = request.getSession();
+//			String user_id = (String) session.getAttribute("user_id");
+//			
+//			if(user_id == null) {
+//				response.sendRedirect("/MyWeb/index.jsp");
+//				return;
+//			
+//			}
 			
 			
 			request.getRequestDispatcher("board_write.jsp").forward(request, response);

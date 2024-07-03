@@ -46,3 +46,9 @@ SELECT * FROM USERS;
 SELECT * FROM USERS WHERE ID = 'aaaa' AND PW = 'aaaa';
 
 SELECT * FROM USERS WHERE ID = 'aaaa';
+
+
+
+
+
+

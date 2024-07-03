@@ -212,8 +212,11 @@ public class BoardServiceImpl implements BoardService {
 
 //		BoardDTO dto = new BoardDTO();
 //		dto.setBno(Integer.parseInt(bno));
+		
+		//오류나는 부분
 		String bno = request.getParameter("bno");
 
+		
 		// sql
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		BoardMapper mapper = sql.getMapper(BoardMapper.class);

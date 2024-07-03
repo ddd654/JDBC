@@ -40,11 +40,21 @@
 			<td colspan="4" align="center">
 			<!-- 26) 경로 지정후 컨트롤러로 화면을 불러온다 -->
 				<input type="button" value="목록" onclick="location.href='list.board';">&nbsp;&nbsp;
+				
+				<c:if test="${dto.writer == sessionScope.user_id }">
 				<!-- 31) bno=${dto.bno} 경로 지정-->
-				<input type="button" value="수정" onclick="location.href='modify.board?bno=${dto.bno}';">&nbsp;&nbsp;
+				<input type="button" value="수정" onclick="location.href='modify.board?bno=${dto.bno}&writer=${dto.writer}';">&nbsp;&nbsp;
 				
 				<!-- 35) 삭제는 원래 post방식이 되어야하는데 이번만 get으로 한다 -->
-				<input type="button" value="삭제" onclick="location.href='delete.board?bno=${dto.bno}';">&nbsp;&nbsp;
+				<input type="button" value="삭제" onclick="location.href='delete.board?bno=${dto.bno}&writer=${dto.writer }';">&nbsp;&nbsp;
+				<!-- 0703
+				작성자 보내기
+				자기자신 글 수정할 수 있게 하는 과정
+				
+				c:if까지 하면 끝
+				 -->
+				 
+				 </c:if>
 			</td>
 		</tr>
 	</table>
